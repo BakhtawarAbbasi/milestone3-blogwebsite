@@ -11,17 +11,14 @@ async function getData(slug: string){
   "currentSlug": slug.current,
     title,
     content,
-    titleImage
+    titleImage,   
 }[0]`;
 const data = await client.fetch(query);
 return data;
 
 }
 
-export default async function BlogArticle({
-  params,
-}: {params: {slug: string};
-}){
+export default async function BlogArticle({params}: {params: {slug: string}}){
     const data: fullBlog = await getData(params.slug);
     console.log(data);
     return(
