@@ -18,8 +18,8 @@ return data;
 
 }
 
-export default async function BlogArticle({params}: {params: {slug: string}}){
-    const data: fullBlog = await getData(params.slug);
+export default async function BlogArticle({params}: {params: {slug: Promise<never>}}){
+    const data: fullBlog = await getData(await params.slug);
     return(
         <div className="my-8 flex flex-col items-center">
           <h1>
