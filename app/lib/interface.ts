@@ -1,17 +1,15 @@
-// import type { TypedObject } from "@sanity/types";
+import type { TypedObject } from "@sanity/types";
 
-import { TypedObject } from "@sanity/types";
-
-export interface simpleBlogCard{
+export interface simpleBlogCard {
     title: string;
     smallDescription: string;
     currentSlug: string;
-    titleImage: string; 
+    titleImage: string;
 }
 
 export interface fullBlog {
-    currentSlug: string,
+    currentSlug: string;
     title: string;
-    content: TypedObject[];
+    content: TypedObject[]; // Replace 'any' with 'TypedObject[]' for better type safety
     titleImage: string;
 }
