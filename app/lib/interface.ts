@@ -1,5 +1,7 @@
 // import type { TypedObject } from "@sanity/types";
 
+import { TypedObject } from "@sanity/types";
+
 export interface simpleBlogCard{
     title: string;
     smallDescription: string;
@@ -10,6 +12,6 @@ export interface simpleBlogCard{
 export interface fullBlog {
     currentSlug: string,
     title: string;
-    content: any;
+    content: TypedObject[];
     titleImage: string;
 }
