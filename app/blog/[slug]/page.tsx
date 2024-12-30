@@ -17,11 +17,8 @@ async function getData(slug: string) {
     return data;
 }
 
-interface BlogArticleProps {
-    params: { slug: string };
-}
-
-export default async function BlogArticle({ params }: BlogArticleProps) {
+export default async function BlogArticle(props: never) {
+    const { params } = props as { params: { slug: string } };
     const data: fullBlog = await getData(params.slug);
 
     return (
