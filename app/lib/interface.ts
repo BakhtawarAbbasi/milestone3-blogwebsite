@@ -1,14 +1,13 @@
 import type { TypedObject } from "@sanity/types";
 
-export interface simpleBlogCard {
+export interface simpleBlogCard{
     title: string;
     smallDescription: string;
     currentSlug: string;
-    titleImage: string;
+    titleImage: string; 
 }
-
 export interface fullBlog {
-    currentSlug: string;
+    currentSlug: string,
     title: string;
     content: TypedObject | TypedObject[];
     titleImage: string;
