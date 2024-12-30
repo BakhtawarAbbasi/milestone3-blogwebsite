@@ -18,6 +18,7 @@ return data;
 
 }
 
+
 export default async function BlogArticle({params}: {params: {slug: string}}){
     const data: fullBlog = await getData(params.slug);
     return(
