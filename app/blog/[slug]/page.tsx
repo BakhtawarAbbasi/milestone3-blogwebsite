@@ -12,22 +12,20 @@ async function getData(slug: string) {
       title,
       content,
       titleImage   
-    }[0]`;
+    }[0]
+  `;
   const data = await client.fetch(query);
   return data;
 }
 
-// Fix: Updated function to conform to Next.js expectations
-export default async function BlogArticle({ params }: { params: { slug: string } }) {
-  const data: fullBlog = await getData(params.slug);
+interface BlogArticleProps {
+  params: {
+    slug: string;
+  };
+}
 
-  if (!data) {
-    return (
-      <div className="text-center">
-        <h1>Blog Not Found</h1>
-      </div>
-    );
-  }
+export default async function BlogArticle({ params }: BlogArticleProps) {
+  const data: fullBlog = await getData(params.slug);
 
   return (
     <div className="my-8 flex flex-col items-center">
@@ -52,11 +50,4 @@ export default async function BlogArticle({ params }: { params: { slug: string }
       </div>
     </div>
   );
-}
-
-// Required to define dynamic routes
-export async function generateStaticParams() {
-  const query = `*[_type == 'blog']{ "slug": slug.current }`;
-  const blogs = await client.fetch(query);
-  return blogs.map((blog: { slug: string }) => ({ slug: blog.slug }));
 }
