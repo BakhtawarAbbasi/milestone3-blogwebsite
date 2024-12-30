@@ -1,4 +1,4 @@
-import type { TypedObject } from "@sanity/types";
+// import type { TypedObject } from "@sanity/types";
 
 export interface simpleBlogCard{
     title: string;
@@ -9,6 +9,6 @@ export interface simpleBlogCard{
 export interface fullBlog {
     currentSlug: string,
     title: string;
-    content: TypedObject | TypedObject[];
+    content: never;
     titleImage: string;
 }
