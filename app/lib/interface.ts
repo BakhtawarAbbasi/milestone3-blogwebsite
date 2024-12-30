@@ -4,12 +4,12 @@ export interface simpleBlogCard {
     title: string;
     smallDescription: string;
     currentSlug: string;
-    titleImage: string;
+    titleImage: string; 
 }
 
 export interface fullBlog {
-    currentSlug: string;
+    currentSlug: string,
     title: string;
-    content: TypedObject[]; // Replace 'any' with 'TypedObject[]' for better type safety
+    content: TypedObject | never; // Ensure 'content' type matches with what you receive from Sanity
     titleImage: string;
 }
