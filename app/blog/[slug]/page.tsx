@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export const revalidate = 30
 
-async function getData(slug: string){
-    const query = 
-    `*[_type == 'blog' && slug.current == '${slug}']{
+async function getData(slug: string) {
+    const query = `
+    *[_type == 'blog' && slug.current == '${slug}']{
       "currentSlug": slug.current,
       title,
       content,
@@ -17,14 +17,9 @@ async function getData(slug: string){
     return data;
 }
 
-interface PageProps {
-    params: {
-        slug: string
-    }
-}
-
-export default async function BlogArticle({ params }: PageProps) {
-    const data: fullBlog = await getData(params.slug);
+export default async function BlogArticle({ params }: { params: { slug: string } }) {
+    const { slug } = params;
+    const data: fullBlog = await getData(slug);
     return (
         <div className="my-8 flex flex-col items-center">
             <h1>
@@ -36,10 +31,9 @@ export default async function BlogArticle({ params }: PageProps) {
                 width={800} 
                 height={800} 
                 alt="titleImage" 
-                className="rounded-lg mt-8 border "
+                className="rounded-lg mt-8 border"
                 priority
             />
-
             <div className="mt-16 prose prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary">
                 <PortableText value={data.content} />
             </div>
