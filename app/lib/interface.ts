@@ -10,6 +10,6 @@ export interface simpleBlogCard{
 export interface fullBlog {
     currentSlug: string,
     title: string;
-    content: string;
+    content: never;
     titleImage: string;
 }
