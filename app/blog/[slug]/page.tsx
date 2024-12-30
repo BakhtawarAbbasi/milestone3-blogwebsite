@@ -20,9 +20,8 @@ return data;
 
 export default async function BlogArticle({params}: {params: {slug: string}}){
     const data: fullBlog = await getData(params.slug);
-    console.log(data);
     return(
-        <div className="mt-8">
+        <div className="my-8 flex flex-col items-center">
           <h1>
             <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">Bakhtawar - Blog</span>
             <span className="block mt-2 text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">{data.title}</span>
@@ -32,7 +31,7 @@ export default async function BlogArticle({params}: {params: {slug: string}}){
           width={800} 
           height={800} 
           alt="titleImage" 
-          className="rounded-lg mt-8 border"
+          className="rounded-lg mt-8 border "
           priority
           />
 
