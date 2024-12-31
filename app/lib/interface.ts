@@ -10,6 +10,6 @@ export interface simpleBlogCard {
 export interface fullBlog {
     currentSlug: string,
     title: string;
-    content: TypedObject | never; // Ensure 'content' type matches with what you receive from Sanity
+    content: TypedObject | never; 
     titleImage: string;
 }
