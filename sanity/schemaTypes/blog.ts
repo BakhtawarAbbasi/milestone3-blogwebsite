@@ -32,7 +32,7 @@ export default {
             title: 'Content',
             of: [
                 {
-                    type: 'text',
+                    type: 'block',
                 },
             ],
         },
